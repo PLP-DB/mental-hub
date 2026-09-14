@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ช่องทางรับบริการสุขภาพจิต</title>
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome (CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts (Prompt) -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Prompt', sans-serif;
+            background-color: #f7fbf9;
+            color: #334155;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        /* 2026 UI Trend: Animated Aurora Background */
+        .bg-pattern {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: #f4f9f6;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(209, 230, 219, 0.8) 0%, transparent 45%),
+                radial-gradient(circle at 85% 20%, rgba(219, 234, 254, 0.6) 0%, transparent 45%),
+                radial-gradient(circle at 50% 90%, rgba(243, 232, 255, 0.5) 0%, transparent 45%);
+            filter: blur(60px);
+            z-index: -1;
+            animation: ambientDrift 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes ambientDrift {
+            0% { transform: scale(1) translate(0, 0); }
+            100% { transform: scale(1.05) translate(-2%, 2%); }
+        }
+
+        /* 2026 UI Trend: Glassmorphism Bento Cards */
+        article {
+            background: rgba(255, 255, 255, 0.65) !important;
+            backdrop-filter: blur(24px) !important;
+            -webkit-backdrop-filter: blur(24px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.9) !important;
+            border-radius: 28px !important;
+            box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.03), inset 0 0 0 1px rgba(255, 255, 255, 0.5) !important;
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+        }
+        article:hover {
+            background: rgba(255, 255, 255, 0.9) !important;
+            transform: translateY(-4px) scale(1.01) !important;
+            box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.08), inset 0 0 0 1px rgba(255, 255, 255, 0.8) !important;
+        }
+
+        /* Standardized Button Styles */
+        .btn-base {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 10px 14px;
+            border-radius: 14px;
+            font-size: 13px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 10px -2px rgba(0,0,0,0.05);
+        }
+        .btn-base:active { transform: scale(0.96); }
+        
+        .btn-tel { background-color: #f0fdf4; color: #16a34a; border: 1px solid #dcfce7; }
+        .btn-tel:hover { background-color: #dcfce7; }
+        
+        .btn-fb { background-color: #eff6ff; color: #1d4ed8; border: 1px solid #dbeafe; }
+        .btn-fb:hover { background-color: #dbeafe; }
+        
+        .btn-line { background-color: #f0fdf4; color: #15803d; border: 1px solid #dcfce7; }
+        .btn-line:hover { background-color: #dcfce7; }
+        
+        .btn-web { background-color: #ffffff; color: #475569; border: 1px solid #e2e8f0; }
+        .btn-web:hover { background-color: #f1f5f9; }
+
+        /* Smooth section target highlight - เผื่อพื้นที่ให้เมนูแบบ Wrap */
+        target { scroll-margin-top: 140px; }
+        section { scroll-margin-top: 140px; }
+        
+        /* ซ่อน Scrollbar สำหรับเมนูแนวนอน */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none; /* Firefox */
+        }
+
+        /* Free Tag Animation */
+        .tag-free {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            box-shadow: 0 2px 10px rgba(16, 185, 129, 0.2);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen antialiased py-6 px-4 sm:px-6 md:py-10 relative">
+    <div class="bg-pattern"></div>
+
+    <div class="max-w-4xl mx-auto w-full relative z-10 bg-white/40 backdrop-blur-3xl p-4 sm:p-8 md:p-10 rounded-[40px] shadow-[0_8px_32px_rgb(0,0,0,0.04)] border border-white/60">
+
+        <header class="text-center mb-6 mt-2 relative">
+            <div class="w-24 h-24 mx-auto rounded-full overflow-hidden shadow-md mb-4 border-4 border-white bg-white relative">
+                <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?q=80&w=2500&auto=format&fit=crop" alt="Profile" class="w-full h-full object-cover">
+            </div>
+            <h1 class="text-xl md:text-2xl font-semibold text-[#1e293b]">ช่องทางรับบริการสุขภาพจิต</h1>
+            <p class="text-sm text-[#64748b] mt-2 px-4 max-w-xl mx-auto">
+                ศูนย์รวมช่องทางติดต่อหน่วยบริการสุขภาพจิต สายด่วน และแอปพลิเคชัน เพื่อให้คุณเข้าถึงความช่วยเหลือได้อย่างรวดเร็ว
+            </p>
+        </header>
+
+        <!-- ==========================================
+             เมนูนำทาง (Sticky Navigation) แบบเลื่อนแนวนอน + Auto Scroll
+        =========================================== -->
+        <nav class="sticky top-2 sm:top-4 z-50 mb-10 w-full max-w-3xl mx-auto transition-all">
+            <div class="relative bg-white/80 backdrop-blur-xl border border-white/90 rounded-[24px] shadow-[0_4px_24px_rgba(0,0,0,0.06)] overflow-hidden flex items-center">
+                
+                <!-- เงาไล่ระดับ & โซน Hover สำหรับเลื่อนซ้าย -->
+                <div id="scroll-left-zone" class="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-white via-white/80 to-transparent z-10 flex items-center justify-start pl-2 opacity-0 transition-opacity duration-300 pointer-events-none cursor-pointer">
+                    <div class="w-7 h-7 rounded-full bg-white shadow flex items-center justify-center text-gray-500 hover:text-[#10b981] hover:bg-green-50 transition-colors">
+                        <i class="fa-solid fa-chevron-left text-xs"></i>
+                    </div>
+                </div>
+
+                <!-- คอนเทนเนอร์ปุ่มเมนู (เลื่อนได้) -->
+                <div id="nav-scroll-container" class="overflow-x-auto no-scrollbar py-2.5 px-4 flex items-center gap-2 w-full relative z-0 whitespace-nowrap">
+                    <a href="#checkin" class="shrink-0 px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl text-[12px] sm:text-[13px] font-medium text-[#475569] bg-white/50 hover:bg-white hover:text-[#0f172a] hover:shadow-sm border border-transparent hover:border-gray-100 transition-all">💚 Check-in</a>
+                    <a href="#hospitals" class="shrink-0 px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl text-[12px] sm:text-[13px] font-medium text-[#475569] bg-white/50 hover:bg-white hover:text-[#0f172a] hover:shadow-sm border border-transparent hover:border-gray-100 transition-all">🏥 รพ. ในพื้นที่</a>
+                    <a href="#hotlines" class="shrink-0 px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl text-[12px] sm:text-[13px] font-medium text-[#475569] bg-white/50 hover:bg-white hover:text-[#0f172a] hover:shadow-sm border border-transparent hover:border-gray-100 transition-all">📞 สายด่วนรับฟัง</a>
+                    <a href="#volunteers" class="shrink-0 px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl text-[12px] sm:text-[13px] font-medium text-[#475569] bg-white/50 hover:bg-white hover:text-[#0f172a] hover:shadow-sm border border-transparent hover:border-gray-100 transition-all">🤝 โครงการจิตอาสา</a>
+                    <a href="#apps" class="shrink-0 px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl text-[12px] sm:text-[13px] font-medium text-[#475569] bg-white/50 hover:bg-white hover:text-[#0f172a] hover:shadow-sm border border-transparent hover:border-gray-100 transition-all">📱 แอปพลิเคชัน</a>
+                    <a href="#selfcare" class="shrink-0 px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl text-[12px] sm:text-[13px] font-medium text-[#475569] bg-white/50 hover:bg-white hover:text-[#0f172a] hover:shadow-sm border border-transparent hover:border-gray-100 transition-all">🌱 โปรแกรมฝึกใจ</a>
+                    <a href="#other" class="shrink-0 px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl text-[12px] sm:text-[13px] font-medium text-[#475569] bg-white/50 hover:bg-white hover:text-[#0f172a] hover:shadow-sm border border-transparent hover:border-gray-100 transition-all">💻 ออนไลน์อื่น ๆ</a>
+                </div>
+
+                <!-- เงาไล่ระดับ & โซน Hover สำหรับเลื่อนขวา -->
+                <div id="scroll-right-zone" class="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-white via-white/80 to-transparent z-10 flex items-center justify-end pr-2 opacity-100 transition-opacity duration-300 pointer-events-auto cursor-pointer">
+                    <div class="w-7 h-7 rounded-full bg-white shadow flex items-center justify-center text-gray-500 hover:text-[#10b981] hover:bg-green-50 transition-colors animate-pulse">
+                        <i class="fa-solid fa-chevron-right text-xs"></i>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <main class="space-y-12">
+
+            <section id="checkin">
+                <a href="https://checkin.dmh.go.th/organization/register_or.php?formType=6&or_id=3887&type_school=0" target="_blank" rel="noopener noreferrer" class="block relative overflow-hidden rounded-[28px] group text-decoration-none border border-[#6ee7b7]/50 shadow-lg shadow-[#10b981]/10 transition-transform duration-300 hover:scale-[1.01]">
+                    <div class="absolute inset-0 bg-gradient-to-r from-[#10b981] to-[#059669] opacity-90 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="absolute -right-10 -top-10 w-40 h-40 bg-white/20 rounded-full blur-2xl"></div>
+                    
+                    <div class="relative p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div class="text-center sm:text-left text-white">
+                            <h2 class="text-xl sm:text-2xl font-semibold mb-1 flex items-center justify-center sm:justify-start gap-2">
+                                <i class="fa-solid fa-heart-pulse"></i> Mental Health Check-in
+                            </h2>
+                            <p class="text-emerald-50 text-sm">เครื่องมือประเมินสุขภาพจิตเบื้องต้น โดยกรมสุขภาพจิต (DMH)</p>
+                        </div>
+                        <div class="bg-white text-[#059669] px-6 py-2.5 rounded-full font-semibold text-sm flex items-center gap-2 shadow-md group-hover:bg-[#f0fdf4] transition-colors whitespace-nowrap">
+                            เริ่มประเมิน <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+            </section>
+
+            <section id="hospitals">
+                <div class="flex items-center mb-6">
+                    <h2 class="text-[16px] font-semibold text-[#475569] flex items-center gap-2">
+                        <i class="fa-solid fa-hospital text-[#5c8a74]"></i> ช่องทางหน่วยบริการในพื้นที่
+                    </h2>
+                    <span class="flex-grow h-[1px] bg-gray-200 ml-4"></span>
+                </div>
+                
+                <div class="flex flex-col gap-5">
+                    <!-- รพ.พุทธชินราช -->
+                    <article class="p-5 flex flex-col relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-green-100/40 rounded-bl-full -z-10 transition-transform group-hover:scale-110"></div>
+                        
+                        <div class="flex flex-col md:flex-row gap-4 mb-4">
+                            <div class="flex-grow">
+                                <h3 class="font-semibold text-[#1e293b] text-lg mb-1">โรงพยาบาลพุทธชินราช พิษณุโลก</h3>
+                                <p class="text-[14px] text-[#64748b]"><i class="fa-regular fa-comments text-[#94a3b8] mr-1"></i> ให้บริการคำปรึกษาเดี่ยว / Walk-in นัดหมาย</p>
+                            </div>
+                            <div class="bg-white/60 p-3 rounded-xl border border-white md:min-w-[250px] self-start w-full md:w-auto">
+                                <p class="text-[12.5px] text-[#475569] flex items-start gap-2 mb-1.5">
+                                    <i class="fa-solid fa-check text-[#10b981] mt-0.5"></i> <span>สิทธิข้าราชการ เบิกเต็มจำนวน</span>
+                                </p>
+                                <p class="text-[12.5px] text-[#475569] flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-[#10b981] mt-0.5"></i> <span>ประกันสังคม เบิกสูงสุด 250 บาท <br><span class="text-[11px] text-[#94a3b8]">(สิทธิรพ.พุทธชินราชเท่านั้น)</span></span>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                            <a href="tel:055270300" class="btn-base btn-tel w-full"><i class="fa-solid fa-phone"></i> 055 270 300</a>
+                            <a href="https://www.budhosp.go.th/" target="_blank" rel="noopener noreferrer" class="btn-base btn-web w-full"><i class="fa-solid fa-globe"></i> เข้าสู่เว็บไซต์</a>
+                            <a href="https://www.facebook.com/budhosp.go.th/?locale=th_TH" target="_blank" rel="noopener noreferrer" class="btn-base btn-fb w-full md:col-span-2"><i class="fa-brands fa-facebook"></i> Facebook</a>
+                        </div>
+                    </article>
+
+                    <!-- รพ.จิตเวชพิษณุโลก -->
+                    <article class="p-5 flex flex-col relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-blue-100/40 rounded-bl-full -z-10 transition-transform group-hover:scale-110"></div>
+                        
+                        <div class="flex flex-col md:flex-row gap-4 mb-4">
+                            <div class="flex-grow">
+                                <h3 class="font-semibold text-[#1e293b] text-lg mb-1">โรงพยาบาลจิตเวชพิษณุโลก</h3>
+                                <p class="text-[14px] text-[#64748b]"><i class="fa-regular fa-comments text-[#94a3b8] mr-1"></i> ให้บริการคำปรึกษาเดี่ยว / Walk-in นัดหมาย</p>
+                            </div>
+                            <div class="bg-white/60 p-3 rounded-xl border border-white md:min-w-[250px] self-start w-full md:w-auto">
+                                <p class="text-[12.5px] text-[#475569] flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-[#10b981] mt-0.5"></i> <span>สิทธิข้าราชการ เบิกเต็มจำนวน</span>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                            <a href="tel:055312555" class="btn-base btn-tel w-full"><i class="fa-solid fa-phone"></i> 0 5531 2555</a>
+                            <a href="https://pph.go.th/" target="_blank" rel="noopener noreferrer" class="btn-base btn-web w-full"><i class="fa-solid fa-globe"></i> เข้าสู่เว็บไซต์</a>
+                            <a href="https://www.facebook.com/people/%E0%B9%82%E0%B8%A3%E0%B8%87%E0%B8%9E%E0%B8%A2%E0%B8%B2%E0%B8%9A%E0%B8%B2%E0%B8%A5%E0%B8%88%E0%B8%B4%E0%B8%95%E0%B9%80%E0%B8%A7%E0%B8%8A%E0%B8%9E%E0%B8%B4%E0%B8%A9%E0%B8%93%E0%B8%B8%E0%B9%82%E0%B8%A5%E0%B8%81/100063718683910/" target="_blank" rel="noopener noreferrer" class="btn-base btn-fb w-full md:col-span-2"><i class="fa-brands fa-facebook"></i> Facebook</a>
+                        </div>
+                    </article>
+
+                    <!-- รพ.มหาวิทยาลัยนเรศวร -->
+                    <article class="p-5 flex flex-col relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-indigo-100/40 rounded-bl-full -z-10 transition-transform group-hover:scale-110"></div>
+                        
+                        <div class="flex flex-col md:flex-row gap-4 mb-4">
+                            <div class="flex-grow">
+                                <h3 class="font-semibold text-[#1e293b] text-lg mb-1">โรงพยาบาลมหาวิทยาลัยนเรศวร</h3>
+                                <p class="text-[14px] text-[#64748b]"><i class="fa-solid fa-user-group text-[#94a3b8] mr-1 text-[11px]"></i> ให้บริการคำปรึกษาเดี่ยวและคู่ / Walk-in นัดหมาย</p>
+                                
+                                <div class="bg-gradient-to-br from-[#f0fdf4] to-white border border-[#bbf7d0] rounded-xl p-3 mt-3 shadow-sm inline-block">
+                                    <p class="text-[13px] font-medium text-[#15803d] mb-1.5 flex items-center gap-1.5"><i class="fa-brands fa-line text-[16px]"></i> เงื่อนไข LINE OA</p>
+                                    <ul class="text-[12px] text-[#166534] space-y-1 leading-snug list-disc pl-4">
+                                        <li>ลงทะเบียนด้วยเลขบัตรประชาชน + เบอร์โทรที่ให้ไว้กับ รพ.</li>
+                                        <li>ต้องมีประวัติการรักษา หรือทำประวัติผู้ป่วยใหม่ก่อนใช้งาน</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="bg-white/60 p-3 rounded-xl border border-white md:min-w-[250px] self-start w-full md:w-auto">
+                                <p class="text-[12.5px] text-[#475569] flex items-start gap-2 mb-1.5">
+                                    <i class="fa-solid fa-check text-[#10b981] mt-0.5"></i> <span>สิทธิข้าราชการ เบิกเต็มจำนวน</span>
+                                </p>
+                                <p class="text-[12.5px] text-[#475569] flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-[#10b981] mt-0.5"></i> <span>ประกันสังคม สิทธิรพ.มน. เท่านั้น</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2">
+                            <a href="tel:055965666" class="btn-base btn-tel w-full"><i class="fa-solid fa-phone"></i> 055 965 666</a>
+                            <a href="tel:055965777" class="btn-base btn-tel w-full"><i class="fa-solid fa-phone"></i> 055 965 777</a>
+                            <a href="https://page.line.me/390gczqd" target="_blank" rel="noopener noreferrer" class="btn-base btn-line w-full"><i class="fa-brands fa-line"></i> LINE</a>
+                            <a href="https://linktr.ee/PRMEDNU" target="_blank" rel="noopener noreferrer" class="btn-base btn-web w-full"><i class="fa-solid fa-link"></i> รวมลิงก์</a>
+                            <a href="https://med.nu.ac.th/nuh/" target="_blank" rel="noopener noreferrer" class="btn-base btn-web w-full"><i class="fa-solid fa-globe"></i> เข้าสู่เว็บไซต์</a>
+                            <a href="https://www.facebook.com/MedicineNuOfficial" target="_blank" rel="noopener noreferrer" class="btn-base btn-fb w-full"><i class="fa-brands fa-facebook"></i> Facebook</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section id="hotlines">
+                <div class="flex items-center mb-6">
+                    <h2 class="text-[16px] font-semibold text-[#475569] flex items-center gap-2">
+                        <i class="fa-solid fa-headset text-[#5c8a74]"></i> สายด่วนและศูนย์รับฟัง
+                    </h2>
+                    <span class="flex-grow h-[1px] bg-gray-200 ml-4"></span>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+                    
+                    <!-- 1323 -->
+                    <article class="p-5 flex flex-col h-full relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-red-50/50 rounded-bl-full -z-10 transition-transform group-hover:scale-110"></div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-semibold text-[#1e293b] text-[16px]">สายด่วนสุขภาพจิต 1323</h3>
+                            <span class="tag-free text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider"><i class="fa-solid fa-star text-[9px] mr-1"></i>ฟรี</span>
+                        </div>
+                        <p class="text-[13px] text-[#64748b] mb-4 flex-grow">โดย กรมสุขภาพจิต<br>โทรได้ตลอด 24 ชม. / แชทเพจ 14.30 - 22.30 น.</p>
+                        
+                        <div class="grid grid-cols-2 gap-2 mt-auto">
+                            <a href="tel:1323" class="btn-base btn-tel w-full"><i class="fa-solid fa-phone"></i> 1323</a>
+                            <a href="https://1323alltime.camri.go.th/" target="_blank" rel="noopener noreferrer" class="btn-base btn-web w-full"><i class="fa-solid fa-globe"></i> เข้าสู่เว็บไซต์</a>
+                            <a href="https://www.facebook.com/helpline1323/" target="_blank" rel="noopener noreferrer" class="btn-base btn-fb w-full col-span-2"><i class="fa-brands fa-facebook"></i> Facebook</a>
+                        </div>
+                    </article>
+
+                    <!-- Samaritans -->
+                    <article class="p-5 flex flex-col h-full relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-amber-50/50 rounded-bl-full -z-10 transition-transform group-hover:scale-110"></div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-semibold text-[#1e293b] text-[16px]">ศูนย์รับฟังเสี่ยงคิดฆ่าตัวตาย</h3>
+                            <span class="tag-free text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider"><i class="fa-solid fa-star text-[9px] mr-1"></i>ฟรี</span>
+                        </div>
+                        <p class="text-[13px] text-[#64748b] mb-4 flex-grow">โดย สมาคมสะมาริตันส์แห่งประเทศไทย (Online)<br>ศูนย์กทม. 12.00-22.00 น. / ศูนย์เชียงใหม่ 19.00-22.00 น.</p>
+                        
+                        <div class="grid grid-cols-2 gap-2 mt-auto">
+                            <a href="tel:021136789" class="btn-base btn-tel w-full text-[11px] px-1"><i class="fa-solid fa-phone"></i> 02 113 6789 กด 1</a>
+                            <a href="tel:0988159011" class="btn-base btn-tel w-full text-[11px] px-1"><i class="fa-solid fa-phone"></i> 098 815 9011</a>
+                            <a href="https://www.facebook.com/Samaritans.Thailand/" target="_blank" rel="noopener noreferrer" class="btn-base btn-fb w-full"><i class="fa-brands fa-facebook"></i> Facebook</a>
+                            <a href="https://lin.ee/h2B3R3K" target="_blank" rel="noopener noreferrer" class="btn-base btn-line w-full"><i class="fa-brands fa-line"></i> LINE</a>
+                            <a href="https://twitter.com/Samaritans_Thai" target="_blank" rel="noopener noreferrer" class="btn-base btn-web w-full col-span-2 bg-gray-900 text-white hover:bg-gray-800 border-none">
+                                <svg class="w-[14px] h-[14px] fill-current" viewBox="0 0 1200 1227" xmlns="http://www.w3.org/2000/svg"><path d="M714.163 519.284L1160.89 0H1055.03L667.137 450.887L357.328 0H0L468.492 681.821L0 1226.37H105.866L515.491 750.218L842.672 1226.37H1200L714.137 519.284H714.163ZM569.165 687.828L521.697 619.934L144.011 79.6944H306.615L611.412 515.685L658.88 583.579L1055.08 1150.3H892.476L569.165 687.854V687.828Z"/></svg>
+                                @Samaritans_Thai
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section id="volunteers">
+                <div class="flex items-center mb-6">
+                    <h2 class="text-[16px] font-semibold text-[#475569] flex items-center gap-2">
+                        <i class="fa-solid fa-hand-holding-heart text-[#5c8a74]"></i> โครงการจิตอาสา
+                    </h2>
+                    <span class="flex-grow h-[1px] bg-gray-200 ml-4"></span>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
+                    
+                    <!-- Are U OK? -->
+                    <article class="p-5 flex flex-col h-full relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-teal-50/50 rounded-bl-full -z-10 transition-transform group-hover:scale-110"></div>
+                        <div class="flex justify-between items-start mb-2 gap-1">
+                            <h3 class="font-semibold text-[#1e293b] text-[16px] leading-tight">โครงการ Are U OK?</h3>
+                            <span class="tag-free text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full uppercase shrink-0"><i class="fa-solid fa-star text-[8px] mr-0.5"></i>ฟรี</span>
+                        </div>
+                        <p class="text-[12.5px] text-[#64748b] mb-4 flex-grow">ให้บริการปรึกษาปัญหาความเครียดโดยทีมอาจารย์พยาบาลผู้เชี่ยวชาญ<br>ทุกวัน 08:00 - 16:00 น.</p>
+                        
+                        <div class="flex flex-col gap-2 mt-auto">
+                            <a href="tel:0940198710" class="btn-base btn-tel w-full"><i class="fa-solid fa-phone"></i> 094 019 8710</a>
+                            <a href="https://line.me/R/ti/p/%40664vessu" target="_blank" rel="noopener noreferrer" class="btn-base btn-line w-full"><i class="fa-brands fa-line"></i> LINE</a>
+                            <a href="https://www.facebook.com/RamaAreUOK" target="_blank" rel="noopener noreferrer" class="btn-base btn-fb w-full"><i class="fa-brands fa-facebook"></i> Facebook</a>
+                        </div>
+                    </article>
+
+                    <!-- Mind balance -->
+                    <article class="p-5 flex flex-col h-full relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-sky-50/50 rounded-bl-full -z-10 transition-transform group-hover:scale-110"></div>
+                        <div class="flex justify-between items-start mb-2 gap-1">
+                            <h3 class="font-semibold text-[#1e293b] text-[16px] leading-tight">Mind balance PROJECT</h3>
+                            <span class="tag-free text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full uppercase shrink-0"><i class="fa-solid fa-star text-[8px] mr-0.5"></i>ฟรี</span>
+                        </div>
+                        <p class="text-[12.5px] text-[#64748b] mb-4 flex-grow">บริการให้ปรึกษาเชิงจิตวิทยา โดยนศ.ป.โท สาขาจิตวิทยาการปรึกษา ม.รามคำแหง เก็บรักษาความลับตามจรรยาบรรณ</p>
+                        
+                        <div class="mt-auto">
+                            <a href="https://lin.ee/hKmcX8q" target="_blank" rel="noopener noreferrer" class="btn-base btn-line w-full"><i class="fa-brands fa-line"></i> LINE</a>
+                        </div>
+                    </article>
+
+                    <!-- Chula CBT -->
+                    <article class="p-5 flex flex-col h-full relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-pink-50/50 rounded-bl-full -z-10 transition-transform group-hover:scale-110"></div>
+                        <div class="flex justify-between items-start mb-2 gap-1">
+                            <h3 class="font-semibold text-[#1e293b] text-[16px] leading-tight">Therapist จิตอาสา</h3>
+                            <span class="tag-free text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full uppercase shrink-0"><i class="fa-solid fa-star text-[8px] mr-0.5"></i>ฟรี</span>
+                        </div>
+                        <p class="text-[12.5px] text-[#64748b] mb-4 flex-grow">โครงการของสาขาสุขภาพจิต คณะแพทยศาสตร์ จุฬาฯ ร่วมกับ CAT เพิ่มการเข้าถึงการบำบัดแบบ CBT สำหรับปชช.</p>
+                        
+                        <div class="mt-auto">
+                            <a href="https://www.facebook.com/ChulaCBT/posts/%E0%B8%A1%E0%B8%B5%E0%B9%80%E0%B8%A3%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B8%97%E0%B8%B8%E0%B8%81%E0%B8%82%E0%B9%8C%E0%B9%83%E0%B8%88-%E0%B9%84%E0%B8%A1%E0%B9%88%E0%B8%A3%E0%B8%B9%E0%B9%89%E0%B8%88%E0%B8%B0%E0%B8%84%E0%B8%B8%E0%B8%A2%E0%B8%81%E0%B8%B1%E0%B8%9A%E0%B9%83%E0%B8%84%E0%B8%A3%E0%B8%94%E0%B8%B5therapist-%E0%B8%88%E0%B8%B4%E0%B8%95%E0%B8%AD%E0%B8%B2%E0%B8%AA%E0%B8%B2-%E0%B9%80%E0%B8%9B%E0%B9%87%E0%B8%99%E0%B9%82%E0%B8%84%E0%B8%A3%E0%B8%87%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B8%AB%E0%B8%A5%E0%B8%B1%E0%B8%81%E0%B8%AA%E0%B8%B9%E0%B8%95%E0%B8%A3%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%81%E0%B8%B2/1641828411317449/" target="_blank" rel="noopener noreferrer" class="btn-base btn-fb w-full"><i class="fa-brands fa-facebook"></i> Facebook</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section id="apps">
+                <div class="flex items-center mb-6">
+                    <h2 class="text-[16px] font-semibold text-[#475569] flex items-center gap-2">
+                        <i class="fa-solid fa-mobile-screen text-[#5c8a74]"></i> แอปพลิเคชันสุขภาพจิต
+                    </h2>
+                    <span class="flex-grow h-[1px] bg-gray-200 ml-4"></span>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    
+                    <!-- Alljit -->
+                    <article class="p-5 flex flex-col h-full relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-violet-50/50 rounded-bl-full -z-10 transition-transform group-hover:scale-110"></div>
+                        <div class="flex justify-between items-start mb-2 gap-1">
+                            <h3 class="font-semibold text-[#1e293b] text-[16px]">Alljit</h3>
+                            <span class="tag-free text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full uppercase shrink-0"><i class="fa-solid fa-star text-[8px] mr-0.5"></i>ฟรี</span>
+                        </div>
+                        <p class="text-[12.5px] text-[#64748b] mb-4 flex-grow">ปรึกษา พูดคุยสุขภาพจิตใจ ผ่านแอปพลิเคชัน</p>
+                        
+                        <div class="flex flex-col gap-2 mt-auto">
+                            <a href="https://www.facebook.com/AlljitTH/" target="_blank" rel="noopener noreferrer" class="btn-base btn-fb w-full"><i class="fa-brands fa-facebook"></i> Facebook</a>
+                            <a href="https://play.google.com/store/apps/details?id=com.alljit&hl=th" target="_blank" rel="noopener noreferrer" class="btn-base flex-1 bg-gray-100 text-gray-700 hover:bg-gray-200"><i class="fa-brands fa-google-play text-[#10b981]"></i> Android</a>
+                            <a href="https://apps.apple.com/th/app/alljit..." target="_blank" rel="noopener noreferrer" class="btn-base flex-1 bg-gray-100 text-gray-700 hover:bg-gray-200"><i class="fa-brands fa-apple"></i> iOS</a>
+                        </div>
+                    </article>
+
+                    <!-- Sati -->
+                    <article class="p-5 flex flex-col h-full relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-blue-50/50 rounded-bl-full -z-10 transition-transform group-hover:scale-110"></div>
+                        <div class="flex justify-between items-start mb-2 gap-1">
+                            <h3 class="font-semibold text-[#1e293b] text-[16px]">Sati (สติ)</h3>
+                            <span class="tag-free text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full uppercase shrink-0"><i class="fa-solid fa-star text-[8px] mr-0.5"></i>ฟรี</span>
+                        </div>
+                        <p class="text-[12.5px] text-[#64748b] mb-4 flex-grow">ให้บริการโดยอาสาสมัครที่ผ่านการอบรม (อายุ 12 ปีขึ้นไป)</p>
+                        
+                        <div class="flex flex-col gap-2 mt-auto">
+                            <a href="https://www.facebook.com/satiapp/?locale=th_TH" target="_blank" rel="noopener noreferrer" class="btn-base btn-fb w-full"><i class="fa-brands fa-facebook"></i> Facebook</a>
+                            <a href="https://play.google.com/store/apps/details?id=com.finleyagency.sati&hl=th" target="_blank" rel="noopener noreferrer" class="btn-base flex-1 bg-gray-100 text-gray-700 hover:bg-gray-200"><i class="fa-brands fa-google-play text-[#10b981]"></i> Android</a>
+                            <a href="https://apps.apple.com/th/app/%E0%B8%AA%E0%B8%95-%E0%B9%81%E0%B8%AD%E0%B8%9E/id1521432838?l=th" target="_blank" rel="noopener noreferrer" class="btn-base flex-1 bg-gray-100 text-gray-700 hover:bg-gray-200"><i class="fa-brands fa-apple"></i> iOS</a>
+                        </div>
+                    </article>
+
+                    <!-- DMIND -->
+                    <article class="p-5 flex flex-col h-full relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-emerald-50/50 rounded-bl-full -z-10 transition-transform group-hover:scale-110"></div>
+                        <div class="flex justify-between items-start mb-2 gap-1">
+                            <h3 class="font-semibold text-[#1e293b] text-[16px]">DMIND</h3>
+                            <span class="tag-free text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full uppercase shrink-0"><i class="fa-solid fa-star text-[8px] mr-0.5"></i>ฟรี</span>
+                        </div>
+                        <p class="text-[12.5px] text-[#64748b] mb-3 flex-grow">ตรวจสุขภาพใจ ในแอปหมอพร้อม<br>เมนู “คุยกับหมอพร้อม” > “ตรวจสุขภาพใจ”</p>
+                        
+                        <div class="mt-auto">
+                            <a href="https://lin.ee/ugRfXpm" target="_blank" rel="noopener noreferrer" class="btn-base btn-line w-full"><i class="fa-brands fa-line"></i> LINE</a>
+                        </div>
+                    </article>
+
+                    <!-- OOCA -->
+                    <article class="p-5 flex flex-col h-full relative overflow-hidden group border-indigo-100">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-indigo-50/50 rounded-bl-full -z-10 transition-transform group-hover:scale-110"></div>
+                        <div class="flex justify-between items-start mb-2 gap-1">
+                            <h3 class="font-semibold text-[#1e293b] text-[16px]">OOCA (อูก้า)</h3>
+                        </div>
+                        <p class="text-[12.5px] text-[#64748b] mb-4 flex-grow">ให้คำปรึกษาจากจิตแพทย์และนักจิตวิทยา (มีค่าบริการ)</p>
+                        
+                        <div class="flex flex-col gap-2 mt-auto">
+                            <a href="https://www.facebook.com/oocaok/?locale=th_TH" target="_blank" rel="noopener noreferrer" class="btn-base btn-fb w-full"><i class="fa-brands fa-facebook"></i> Facebook</a>
+                            <a href="https://play.google.com/store/apps/details?id=co.ooca.user" target="_blank" rel="noopener noreferrer" class="btn-base flex-1 bg-gray-100 text-gray-700 hover:bg-gray-200"><i class="fa-brands fa-google-play text-[#10b981]"></i> Android</a>
+                            <a href="https://apps.apple.com/us/app/ooca..." target="_blank" rel="noopener noreferrer" class="btn-base flex-1 bg-gray-100 text-gray-700 hover:bg-gray-200"><i class="fa-brands fa-apple"></i> iOS</a>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+            
+            <section id="selfcare">
+                <div class="flex items-center mb-6">
+                    <h2 class="text-[16px] font-semibold text-[#475569] flex items-center gap-2">
+                        <i class="fa-solid fa-seedling text-[#5c8a74]"></i> โปรแกรมดูแลและฝึกใจ
+                    </h2>
+                    <span class="flex-grow h-[1px] bg-gray-200 ml-4"></span>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+                    
+                    <!-- ต่อเติมใจ -->
+                    <article class="p-5 flex flex-col h-full relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-orange-50/50 rounded-bl-full -z-10 transition-transform group-hover:scale-110"></div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-semibold text-[#1e293b] text-[16px]">ต่อ-เติม-ใจ</h3>
+                            <span class="tag-free text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider"><i class="fa-solid fa-star text-[9px] mr-1"></i>ฟรี</span>
+                        </div>
+                        <p class="text-[12.5px] text-[#64748b] mb-4 flex-grow">แพลตฟอร์มดูแลสุขภาพจิตด้วยตนเอง พัฒนาโดยกรมสุขภาพจิตร่วมกับ WHO เยียวยาจิตใจได้ง่ายๆ โดยไม่ต้องเปิดเผยตัวตน</p>
+                        
+                        <div class="mt-auto">
+                            <a href="https://www.ต่อเติมใจ.com/" target="_blank" rel="noopener noreferrer" class="btn-base btn-web w-full"><i class="fa-solid fa-globe"></i> เข้าสู่เว็บไซต์</a>
+                        </div>
+                    </article>
+
+                    <!-- Emmind -->
+                    <article class="p-5 flex flex-col h-full relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-rose-50/50 rounded-bl-full -z-10 transition-transform group-hover:scale-110"></div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-semibold text-[#1e293b] text-[16px]">Emmind</h3>
+                            <span class="tag-free text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider"><i class="fa-solid fa-star text-[9px] mr-1"></i>ฟรี</span>
+                        </div>
+                        <p class="text-[12.5px] text-[#64748b] mb-4 flex-grow">เครื่องมือฝึกทักษะจัดการอารมณ์ด้วย CBT บันทึกอารมณ์ ตารางกิจวัตรขจัดเศร้า และ Safety Plan สำหรับผู้ไม่สบายใจ</p>
+                        
+                        <div class="grid grid-cols-2 gap-2 mt-auto">
+                            <a href="https://aimet.tech/th/all-projects/emmind/" target="_blank" rel="noopener noreferrer" class="btn-base btn-web w-full"><i class="fa-solid fa-globe"></i> เข้าสู่เว็บไซต์</a>
+                            <a href="https://lin.ee/tK1Qp1p" target="_blank" rel="noopener noreferrer" class="btn-base btn-line w-full"><i class="fa-brands fa-line"></i> LINE</a>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <section id="other">
+                <div class="flex items-center mb-6">
+                    <h2 class="text-[16px] font-semibold text-[#475569] flex items-center gap-2">
+                        <i class="fa-solid fa-laptop-medical text-[#5c8a74]"></i> ช่องทางออนไลน์อื่นๆ (มีค่าบริการ)
+                    </h2>
+                    <span class="flex-grow h-[1px] bg-gray-200 ml-4"></span>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+                    
+                    <!-- ศูนย์สุขภาวะทางจิต -->
+                    <article class="p-5 flex flex-col h-full relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-pink-50/50 rounded-bl-full -z-10 transition-transform group-hover:scale-110"></div>
+                        <h3 class="font-semibold text-[#1e293b] text-[16px] mb-2">ศูนย์สุขภาวะทางจิต (จุฬาฯ)</h3>
+                        <p class="text-[13px] text-[#64748b] mb-4 flex-grow">บริการการปรึกษาเชิงจิตวิทยา เดี่ยว/คู่/ครอบครัว<br>ในเวลา 9.00-17.00 น. / นอกเวลา 17.00-19.00 น.</p>
+                        
+                        <div class="grid grid-cols-2 gap-2 mt-auto">
+                            <a href="tel:0617362859" class="btn-base btn-tel w-full"><i class="fa-solid fa-phone"></i> 061 736 2859</a>
+                            <a href="http://wellness.psy.chula.ac.th/" target="_blank" rel="noopener noreferrer" class="btn-base btn-web w-full"><i class="fa-solid fa-globe"></i> เข้าสู่เว็บไซต์</a>
+                            <a href="https://www.facebook.com/WellnessPsyCU" target="_blank" rel="noopener noreferrer" class="btn-base btn-fb w-full"><i class="fa-brands fa-facebook"></i> Facebook</a>
+                            <a href="mailto:psywellness.chula@gmail.com" class="btn-base w-full bg-gray-100 text-gray-700 hover:bg-gray-200"><i class="fa-solid fa-envelope"></i> Email</a>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="text-center mt-12 mb-4 text-[#94a3b8] text-xs">
+            <p>งานส่งเสริมสุขภาพ โรงเรียนพิษณุโลกปัญญานุกูล</p>
+        </footer>
+
+    </div>
+
+    <!-- Script สำหรับจัดการการเลื่อนเมนูอัตโนมัติ -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('nav-scroll-container');
+            const leftZone = document.getElementById('scroll-left-zone');
+            const rightZone = document.getElementById('scroll-right-zone');
+            
+            let scrollInterval;
+            const scrollSpeed = 4; // ปรับความเร็วในการเลื่อนเมื่อเอาเมาส์ชี้ได้ที่นี่
+            let isHovering = false;
+
+            // ฟังก์ชันอัปเดตการมองเห็นของลูกศรและเงา
+            const updateGradients = () => {
+                // เช็คขอบซ้าย (ถ้าไม่ได้อยู่ซ้ายสุด ให้แสดงปุ่มเลื่อนซ้าย)
+                if (container.scrollLeft > 5) {
+                    leftZone.style.opacity = '1';
+                    leftZone.style.pointerEvents = 'auto';
+                } else {
+                    leftZone.style.opacity = '0';
+                    leftZone.style.pointerEvents = 'none';
+                    if(isHovering === 'left') stopScroll(); // หยุดเลื่อนถ้าสุดขอบแล้ว
+                }
+
+                // เช็คขอบขวา (ถ้ายังไปต่อได้ ให้แสดงปุ่มเลื่อนขวา)
+                const maxScrollLeft = container.scrollWidth - container.clientWidth;
+                if (container.scrollLeft < maxScrollLeft - 5) {
+                    rightZone.style.opacity = '1';
+                    rightZone.style.pointerEvents = 'auto';
+                } else {
+                    rightZone.style.opacity = '0';
+                    rightZone.style.pointerEvents = 'none';
+                    if(isHovering === 'right') stopScroll(); // หยุดเลื่อนถ้าสุดขอบแล้ว
+                }
+            };
+
+            // ฟังก์ชันเริ่มเลื่อนอัตโนมัติ (ใช้ RequestAnimationFrame เพื่อความนุ่มนวล)
+            const startScroll = (direction) => {
+                if(isHovering) return; // ป้องกันการเรียกซ้ำ
+                isHovering = direction;
+                
+                const step = () => {
+                    if (isHovering === 'right') {
+                        container.scrollLeft += scrollSpeed;
+                    } else if (isHovering === 'left') {
+                        container.scrollLeft -= scrollSpeed;
+                    }
+                    updateGradients();
+                    
+                    if(isHovering) {
+                        scrollInterval = requestAnimationFrame(step);
+                    }
+                };
+                scrollInterval = requestAnimationFrame(step);
+            };
+
+            // ฟังก์ชันหยุดเลื่อน
+            const stopScroll = () => {
+                isHovering = false;
+                cancelAnimationFrame(scrollInterval);
+            };
+
+            // Event Listener สำหรับคอมพิวเตอร์ (Mouse)
+            leftZone.addEventListener('mouseenter', () => startScroll('left'));
+            leftZone.addEventListener('mouseleave', stopScroll);
+            
+            rightZone.addEventListener('mouseenter', () => startScroll('right'));
+            rightZone.addEventListener('mouseleave', stopScroll);
+
+            // Event Listener สำหรับมือถือ (Touch - เผื่อผู้ใช้อยากกดที่ลูกศรตรงๆ)
+            leftZone.addEventListener('touchstart', (e) => { e.preventDefault(); startScroll('left'); }, {passive: false});
+            leftZone.addEventListener('touchend', stopScroll);
+            
+            rightZone.addEventListener('touchstart', (e) => { e.preventDefault(); startScroll('right'); }, {passive: false});
+            rightZone.addEventListener('touchend', stopScroll);
+
+            // อัปเดตเมื่อมีการไถหน้าจอด้วยนิ้วหรือ Trackpad ปกติ
+            container.addEventListener('scroll', updateGradients);
+            
+            // เช็คสถานะเริ่มต้นเมื่อโหลดหน้า หรือหมุนจอ
+            window.addEventListener('resize', updateGradients);
+            setTimeout(updateGradients, 150); // ดีเลย์ให้ DOM จัดเรียงความกว้างเสร็จก่อน
+        });
+    </script>
+</body>
+</html>
